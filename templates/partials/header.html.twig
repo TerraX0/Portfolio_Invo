@@ -4,7 +4,7 @@
             <div class="nav-logo-links">
                 <div class="logo-container">
                     <a href="{{ path('home') }}" class="logo-link" title="Startseite">
-                        <img src="{{ asset('images/LKA.png') }}" alt="Startseite" class="logo">
+                        <img src="{{ asset('images/Logo_AK_endgültig_bearbeitet2.png') }}" alt="Startseite" class="logo">
                     </a>
                 </div>
             </div>
@@ -26,23 +26,18 @@
               {% set nav_items = [
     {
         'route': '#', 
-        'icon': 'images/icons/person.svg', 
-        'label': 'Profil', 
-        'alt': 'Profil'
+        'icon': '#', 
+        'label': '#', 
     },
     {
         'route': '#', 
-        'icon': 'images/icons/logout.svg', 
-        'label': 'Logout', 
-        'alt': 'Logout'
+        'icon': '#', 
+        'label': '#', 
+        'alt': '#'
     }
-] %}
+] %} 
 
-                {% for item in nav_items %}
-                    <a href="{{ item.route }}" title="{{ item.label }}">
-                        <img src="{{ asset(item.icon) }}" alt="{{ item.alt }}" class="person-icon">
-                    </a>
-                {% endfor %}
+              
             </div>
         </nav>
     </div>

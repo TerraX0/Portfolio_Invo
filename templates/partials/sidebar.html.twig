@@ -14,9 +14,9 @@
         {# 2. RENDERING: path() entfernen und direkten Wert item.route verwenden #}
         {% for item in menu_items %}
             <li>
-                {# Verwendung von item.route (welches jetzt '#') ist, ohne path() #}
+                {# Verwendung von item.route #}
                 <a href="{{ item.route }}" title="{{ item.label }}">
-                    <img src="{{ asset(item.icon) }}" alt="{{ item.label }} Icon" class="sidebar-icon">
+                    <img src="{{ asset(item.icon) }}" alt="{{ item.label }} Icon" class="nav-icon">
                     <span class="sidebar-label">{{ item.label }}</span>
                 </a>
             </li>
@@ -26,7 +26,7 @@
         <li>
             <a href="#" title="Logout">
                 {# Icons und Label für Logout ergänzt (Beispiel) #}
-                <img src="{{ asset('images/icons/logout.svg') }}" alt="Logout Icon" class="sidebar-icon">
+                <img src="{{ asset('images/icons/logout.svg') }}" alt="Logout Icon" class="nav-icon">
                 <span class="sidebar-label">Logout</span>
             </a>
         </li>
