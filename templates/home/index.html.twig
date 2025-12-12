@@ -42,7 +42,9 @@
 
 {% set items = [
     { 'name': 'Zielfahndung', 'save_url': '#', 'search_url': '#' },
-    { 'name': 'Fahndung', 'save_url': '#', 'search_url': '#' },
+
+{ 'name': 'Fahndung', 'save_url': path('fahndung'), 'search_url':path('fahndung_search')},
+
     { 'name': 'Internationale Zusammenarbeit', 'save_url': '#', 'search_url': '#' }
 ] %}
 

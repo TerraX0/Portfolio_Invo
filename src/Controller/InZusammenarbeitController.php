@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\IntZusammenarbeit;
 use App\Form\IntzusammenarbeitType;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Service\InMemoryDataService;
 
 class IntzusammenarbeitController extends AbstractController
 {
