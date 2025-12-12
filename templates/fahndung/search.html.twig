@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{# templates/fahndung/search.html.twig #}
+{% set show_header = true %}
+{% set show_sidebar = true %}
+{% block title %}Fahndung Suche{% endblock %}
+
+{% block content %}
+
+    <h1 class="page-title">Fahndung Suche</h1>
+
+    {{ form_start(form, {'attr': {'class': 'form'}}) }}
+
+    <div class="form-container01">Vorgangsdaten</div>
+        <div class="form-grid">
+    <div class="form-item floating-label-container">
+        {% include 'partials/floating_labels.html.twig' with {'field': form.id} %}
+    </div>
+    <div class="form-item floating-label-container">
+        {% include 'partials/floating_labels.html.twig' with {'field': form.vorgangsnummer} %}
+    </div>
+        </div> <!--Ende form-grid -->
+
+    <div class="form-container01">Persönliche Daten</div>
+    <div class="form-grid">
+        <div class="form-item floating-label-container">
+            {% include 'partials/floating_labels.html.twig' with {'field': form.name} %}
+        </div>
+        <div class="form-item floating-label-container">
+            {% include 'partials/floating_labels.html.twig' with {'field': form.vorname} %}
+        </div>
+        <div class="form-item floating-label-container">
+            {% include 'partials/floating_labels.html.twig' with {'field':  form.gebdatumOperator} %}
+        </div>
+        <div class="form-item floating-label-container">
+            {% include 'partials/floating_labels.html.twig' with {'field': form.gebdatum} %}
+        </div>
+    </div> <!--Ende form-grid -->
+
+        <div class="form-container01">Fristen</div>
+    <div class="form-grid">
+
+        <div class="form-item floating-label-container">
+            {% include 'partials/floating_labels.html.twig' with {'field': form.erfassungOperator} %}
+        </div>
+        <div class="form-item floating-label-container">
+            {% include 'partials/floating_labels.html.twig' with {'field': form.erfassung} %}
+        </div>
+        <div class="form-item floating-label-container">
+            {% include 'partials/floating_labels.html.twig' with {'field': form.loeschungOperator} %}
+        </div>
+        <div class="form-item floating-label-container">
+            {% include 'partials/floating_labels.html.twig' with {'field': form.loeschung} %}
+        </div>
+    </div> <!--Ende form-grid -->
+
+    <!-- Buttons -->
+    <div class="action-buttons">
+        <button type="submit" class="btn-primary">Suchen</button>
+        <a href="{{ path('fahndung') }}" class="btn btn-primary">Zur Speichermaske</a>
+        <a href="{{ path('home') }}" class="btn btn-primary">Zurück zur Startseite</a>
+    </div> <!-- Ende button-group -->
+
+
+    {{ form_end(form) }}
+
+{% endblock %}

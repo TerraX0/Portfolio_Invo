@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+{# templates/home/index.html.twig #}
+{% set show_sidebar = true %}
+{% set show_header = true %}
+{% block title %}InVo Dashboard{% endblock %}
+
+{% block content %}
+    <div class="js-header-container">
+        <div class="js-header-title">
+            <h2 id="js-dynamic-header" class="page-title">
+                Vorgangsbearbeitung
+            </h2>
+        </div> <!-- Ende .js-header-title -->
+
+        <!-- Tabs Navigation -->
+        <div class="js-tabs">
+            <ul class="js-tabs-list">
+                <li class="js-tabs-item">
+                    <div id="tab1" class="js-tabs-link">Vorgangsbearbeitung</div>
+                </li>
+                <li class="js-tabs-item">
+                    <div id="tab2" class="js-tabs-link">Kataloge</div>
+                </li>
+                <li class="js-tabs-item">
+                    <div id="tab3" class="js-tabs-link">Administration</div>
+                </li>
+            </ul>
+        </div> <!-- Ende .js-tabs -->
+    </div> <!-- Ende .js-header-container -->
+
+    <!-- Tab Content Sections -->
+
+    <div class="js-tab-content">
+        <!-- Vorgangsbearbeitung Section -->
+        <div id="tab1-section" class="js-tab-section" style="display: block;">
+            <div class="home-grid">
+
+                <!-- Formulare mit Buttons-->
+        {# -------------------------------------------------------------
+   Formulare mit Buttons (aktuell Platzhalter / Dummy-Routen)
+   ------------------------------------------------------------- #}
+
+{% set items = [
+    { 'name': 'Zielfahndung', 'save_url': '#', 'search_url': '#' },
+    { 'name': 'Fahndung', 'save_url': '#', 'search_url': '#' },
+    { 'name': 'Internationale Zusammenarbeit', 'save_url': '#', 'search_url': '#' }
+] %}
+
+
+                {% for item in items %}
+                    <div class="home-grid-item with-buttons">
+                        <a href="{{ item.save_url is defined ? item.save_url : '#' }}" class="no-underline">{{ item.name }}</a>
+                        <div class="grid-vorgang-item-right">
+                            <a href="{{ item.search_url is defined ? item.search_url : '#' }}" class="action-button-abfrage">Suche / Bearbeiten</a>
+                        </div> <!-- Ende .grid-vorgang-item-right -->
+                        <div class="grid-vorgang-item-right">
+                            <a href="{{ item.save_url is defined ? item.save_url : '#' }}" class="action-button-speichern">Neuspeicherung</a>
+                        </div> <!-- Ende .grid-vorgang-item-right -->
+                    </div> <!-- Ende .home-grid-item with-buttons -->
+                {% endfor %}
+
+                <!-- Restliche Formulare ohne Buttons-->
+            <div class="home-grid-item">
+              <a href="#personenabfrage" class="no-underline">Tabellenübergreifende Personenabfrage</a>
+
+                </div> <!-- Ende .home-grid-item -->
+            <div class="home-grid-item">Aufruf ZF-WV-Liste</div>
+
+        </div> <!-- Ende .home-grid -->
+        </div> <!-- Ende #tab1-section -->
+
+        <!-- Kataloge Section -->
+        <div id="tab2-section" class="js-tab-section" style="display: none">
+                {# Katalogliste als Partial #}
+            {% include 'partials/katalog.html.twig' %}
+        </div> <!-- Ende #tab2-section -->
+
+        <!-- Administration Section -->
+        <div id="tab3-section" class="js-tab-section" style="display: none">
+            <div class="home-grid">
+                <div class="home-grid-item"><a href="#profil" title="Profil" class="no-underline">Profil / Passwortänderung</a></div>
+
+                {% if app.user and 'ROLE_ADMIN' in app.user.roles %}
+                <div class="home-grid-item"><a href="{{ path('admin_users') }}" class="no-underline">Benutzerverwaltung</a></div>
+                {% endif %}
+            </div> <!-- Ende .home-grid -->
+        </div> <!-- Ende #tab3-section -->
+    </div> <!-- Ende .js-tab-content -->
+
+
+    {% endblock %}
+

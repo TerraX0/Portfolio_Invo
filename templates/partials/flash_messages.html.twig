@@ -1,0 +1,28 @@
+    {# Flash-Nachrichten anzeigen #}
+        {% for label, messages in app.flashes %}
+    <div class="flash-messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}" style="font-size: 1.2rem;">
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+    </div>
+        {% endfor %}
+
+
+    {# Zentrale Fehleranzeige für Formularfehler, falls das Formular-Objekt verfügbar ist #}
+    {% if form is defined and form.vars.errors|length > 0 %}
+        <div class="form-register-errors">
+            {% for error in form.vars.errors %}
+                {% if error.message == 'The CSRF token is invalid. Please try to resubmit the form.' %}
+                    <div class="error-register-message">
+                        Fehler: Bitte versuchen Sie, das Formular erneut abzusenden.
+                    </div>
+                {% else %}
+                    <div class="error-register-message">
+                        {{ error.message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}

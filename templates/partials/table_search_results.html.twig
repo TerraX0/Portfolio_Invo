@@ -1,0 +1,62 @@
+{# templates/partials/table_search_results.html.twig #}
+{# Dynamische übernahme der Tabellen-Header, Spalten und Daten #}
+{% set filteredFields = fields|filter(field => fieldLabels[field] is not null and field not in ['inhalt', 'massnahmen']) %}
+
+<div class="table-wrapper">
+    <table class="table-main">
+        <!-- Header wird nur einmal angezeigt -->
+        <thead>
+        <tr class="table-row-header">
+            {% for field in filteredFields %}
+                <th class="table-cell-header">{{ fieldLabels[field] }}</th>
+            {% endfor %}
+            <th class="table-cell-header"></th> <!-- Diese Zeile fügt die leere Spalte für den 'Anzeigen'-Button hinzu -->
+            <th class="table-cell-header"></th> <!-- Diese Zeile fügt die leere Spalte für den 'Löschen'-Button hinzu -->
+        </tr>
+        </thead>
+
+        <tbody class="table-body">
+        {% for entry in results %}
+            <tr class="table-row">
+                {% for field in filteredFields %}
+                    <td class="table-cell">
+                        {% if field in entry|keys and attribute(entry, field) is not null %}
+                            {{ attribute(entry, field) | default('') }}
+                        {% else %}
+                            {# Falls kein Wert, nichts anzeigen oder leer lassen #}
+                        {% endif %}
+                    </td>
+                {% endfor %}
+                <td class="table-cell button-align-right">
+                    <a href="{{ path(detailRoute, {'id': entry.fahndung_id ?? entry.zielfahndung_id ?? entry.int_zusammenarbeit_id ?? entry.id}) }}" class="btn btn-primary">Anzeigen</a>
+                </td>
+                <td class="table-cell button-align-right">
+                    <a href="{{ path(deleteRoute, { 'id': entry.fahndung_id ?? entry.zielfahndung_id ?? entry.int_zusammenarbeit_id ?? entry.id}) }}"
+                       class="btn-orange" style="display:inline;"
+                       onclick="return confirm('Bist du sicher, dass du löschen möchtest?')">
+                        Löschen
+                    </a>
+                </td>
+            </tr>
+
+            {# Wenn 'inhalt' definiert und nicht null ist, wird es unterhalb des Datensatzes angezeigt #}
+            {% if attribute(entry, 'inhalt') is defined and attribute(entry, 'inhalt') is not null %}
+                <tr class="table-row  with-bottom-border">
+                    <td colspan="{{ filteredFields|length + 2 }}" class="table-cell">
+                        <strong>Inhalt:</strong> {{ entry.inhalt }}
+                    </td>
+                </tr>
+            {% endif %}
+
+            {# Wenn 'massnahmen' definiert und nicht null ist, wird es unterhalb des Datensatzes angezeigt #}
+            {% if attribute(entry, 'massnahmen') is defined and attribute(entry, 'massnahmen') is not null %}
+                <tr class="table-row  with-bottom-border2">
+                    <td colspan="{{ filteredFields|length + 2 }}" class="table-cell">
+                        <strong>Massnahmen:</strong> {{ entry.massnahmen }}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

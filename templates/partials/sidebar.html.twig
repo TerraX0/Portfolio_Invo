@@ -1,0 +1,35 @@
+<div class="sidebar">
+    <ul>
+        {# 1. ARRAY DEFINIEREN: Alle 'route'-Werte auf '#' setzen #}
+        {% set menu_items = [
+            {'route': '#', 'label': 'Home', 'icon': 'images/icons/home.svg'},
+            {'route': '#', 'label': 'Int.Zusammenarbeit', 'icon': 'images/icons/pen.svg'},
+            {'route': '#', 'label': 'Fahndung', 'icon': 'images/icons/pen.svg'},
+            {'route': '#', 'label': 'Zielfahndung', 'icon': 'images/icons/pen.svg'},
+            {'route': '#', 'label': 'Tabellenüb. Pers.abfrage', 'icon': 'images/icons/pen.svg'},
+            {'route': '#', 'label': 'Kataloge', 'icon': 'images/icons/book.svg'},
+        ] %}
+
+
+        {# 2. RENDERING: path() entfernen und direkten Wert item.route verwenden #}
+        {% for item in menu_items %}
+            <li>
+                {# Verwendung von item.route (welches jetzt '#') ist, ohne path() #}
+                <a href="{{ item.route }}" title="{{ item.label }}">
+                    <img src="{{ asset(item.icon) }}" alt="{{ item.label }} Icon" class="sidebar-icon">
+                    <span class="sidebar-label">{{ item.label }}</span>
+                </a>
+            </li>
+        {% endfor %}
+        
+
+        <li>
+            <a href="#" title="Logout">
+                {# Icons und Label für Logout ergänzt (Beispiel) #}
+                <img src="{{ asset('images/icons/logout.svg') }}" alt="Logout Icon" class="sidebar-icon">
+                <span class="sidebar-label">Logout</span>
+            </a>
+        </li>
+
+    </ul>
+</div>

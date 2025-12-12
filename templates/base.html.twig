@@ -1,17 +1,51 @@
 <!DOCTYPE html>
-<html>
+    <html lang="de">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Default Title{% endblock %}</title>
+        <!--favicon -->
+      <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/icons/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/icons/favicon/favicon-16x16.png') }}">
+
         {% block stylesheets %}
+            {% include 'partials/stylesheets.html.twig' ignore missing %}
         {% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+</head>
+<body>
+{% block body %}
+    {% if show_header is defined and show_header %}
+        {% include 'partials/header.html.twig' ignore missing %}
+    {% endif %}
+
+    <div class="main-container">
+
+            {% block sidebar %}
+                {% if show_sidebar is defined and show_sidebar %}
+                    <div class="sidebar-wrapper">
+                    {% include 'partials/sidebar.html.twig' %}
+                    </div> <!-- End sidebar-wrapper -->
+                {% endif %}
+            {% endblock %}
+
+        <div class="content-wrapper">
+            {% include 'partials/flash_messages.html.twig' %}
+
+            <main class="content">
+                {% block content %}
+                    <!-- Hauptinhalt -->
+                {% endblock %}
+
+            </main> <!-- End content -->
+
+        </div> <!-- End content-wrapper -->
+
+    </div> <!-- End main-container -->
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/home_tabs.js') }}"></script>
+{% endblock %}
+
+</body>
 </html>

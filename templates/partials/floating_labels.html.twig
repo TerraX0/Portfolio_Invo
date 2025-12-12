@@ -1,0 +1,9 @@
+<div class="form-item floating-label-container">
+    {{ form_widget(field, {
+        'attr': field.vars.attr|merge({
+            'class': 'floating-input',
+            'placeholder': ''
+        })
+    }) }}
+    <label for="{{ field.vars.id }}" class="floating-label">{{ field.vars.label }}</label>
+</div>

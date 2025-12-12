@@ -1,0 +1,177 @@
+
+
+
+.login-form-wrapper {
+    background-color: transparent;
+    padding: 30px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.login-form div {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; /* Stapelt die Elemente untereinander */
+    align-items: center; /* Zentriert die Elemente horizontal */
+    justify-content: center; /* Zentriert den gesamten Inhalt */
+    width: 100%;
+}
+
+.login-form label.login,
+.profile-label label{
+    display: block;
+    font-size: 14px;
+    color: #666;
+    /*margin-bottom: 5px; */
+    margin: 10px auto; /* Automatische Ränder für horizontale Zentrierung */
+
+
+}
+
+.login-form input,
+.login-form textarea,
+.profil textarea,
+.profil input,
+.form-group input
+{
+    width: 20%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: block;
+    /* margin: 10px auto; Automatische Ränder für horizontale Zentrierung */
+    margin-left: auto;  /* Horizontale Zentrierung */
+    margin-right: auto; /* Horizontale Zentrierung */
+}
+
+
+.formbutton {
+    display: block; /* Damit das Element sich über die gesamte Breite erstreckt und "margin: auto" funktioniert */
+    width: 20%;
+    padding: 12px;
+    background-color: #0069b4;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px auto; /* Zentriert den Button horizontal */
+    text-align: center;
+}
+
+
+form button:hover {
+    background-color: rgb(0,71,107);
+}
+
+.login {
+    display: block; /* Damit das Label auf einer eigenen Zeile steht */
+    text-align: center; /* Zentriert den Text innerhalb des Labels */
+    margin: 10px auto; /* Automatische Ränder für horizontale Zentrierung */
+    font-size: 16px; /* Optional: Schriftgröße anpassen */
+}
+
+/* Rolle-Select */
+/*TODO: Checkbox verhübschen */
+.checkbox-container {
+    display: flex;
+    flex-direction: column; /* Checkboxen untereinander anordnen */
+    align-items: center; /* Zentriert die Checkboxen horizontal */
+    text-align: center; /* Zentriert die Labels */
+    margin-top: 10px; /* Abstand nach oben */
+}
+
+/* Jede Checkbox und das zugehörige Label */
+.checkbox-container input[type="checkbox"] {
+    margin-bottom: 5px; /* Abstand zwischen den Checkboxen */
+    width: auto; /* Automatische Breite für die Checkbox */
+}
+
+/* Label für jede Checkbox */
+.checkbox-container label {
+    font-size: 16px; /* Schriftgröße anpassen */
+    color: #666; /* Farbgebung für das Label */
+    display: block; /* Macht das Label zu einem Block-Element, sodass es unter der Checkbox erscheint */
+    margin-bottom: 10px; /* Abstand unter dem Label */
+    text-align: center; /* Zentriert das Label horizontal */
+    cursor: pointer; /* Zeigt an, dass das Label anklickbar ist */
+}
+
+/* Stil für den Hover-Effekt der Checkbox */
+.checkbox-container input[type="checkbox"]:hover {
+    cursor: pointer;
+    border-color: #0069b4; /* Ändert die Farbe beim Hover */
+}
+
+/* Stil für Checkboxen */
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: #0069b4; /* Blau hinter der Checkbox, wenn sie ausgewählt ist */
+    border-color: #0069b4; /* Blau am Rand der Checkbox */
+}
+
+/* Login- Fehlermeldung */
+.alert.alert {
+   color: var(--pol-red); /* Hintergrundfarbe auf Rot setzen */
+    margin-left: 8px;
+}
+
+/* Register- Fehleranzeigen */
+.form-register-errors {
+    color: var(--pol-red);
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+.error-register-message {
+    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    color: var(--pol-red);
+}
+
+/* Changepasswort - Fehleranzeigen */
+.error-item {
+    color: var(--pol-red);
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+.flash-messages{
+    margin-top: 10px;
+}
+
+/*
+.alert {
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+@media (max-width: 500px) {
+    .login-form-wrapper {
+        width: 90%;
+    }
+} */

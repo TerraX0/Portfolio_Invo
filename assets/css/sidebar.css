@@ -1,0 +1,43 @@
+/*Sidebar-Menu*/
+.sidebar-wrapper {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 0.8rem;
+    min-height: 100vh;
+    flex-shrink: 0;
+}
+
+.sidebar {
+    position: fixed;
+    padding: 0.2rem;
+}
+
+.sidebar ul, .sidebar ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar a {
+    display: flex;
+    text-decoration: none;
+    padding: 10px 7px;
+    color: #333;
+    font-variant: small-caps;
+}
+
+
+/* Style für die Icons in der Sidebar */
+.nav-icon {
+    width: 20px; /* Breite des Icons */
+    height: 20px; /* Höhe des Icons */
+    margin-right: 10px; /* Abstand zwischen Icon und Text */
+}
+
+/* Stil für den Text neben dem Icon */
+.nav-text {
+    font-size: 16px;
+    color: #333; /* Textfarbe */
+    text-decoration: none; /* Keine Unterstreichung */
+}
+

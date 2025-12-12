@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+{# templates/fahndung/search_results.html.twig #}
+{% set show_header = true %}
+{% set show_sidebar = true %}
+{% block title %}Fahndung Ergebnisse{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Fahndung Suchergebnisse</h1>
+
+    {% if fahndungen is not empty %}
+        {% dump(fahndungen) %}
+
+        {% set formattedResults = [] %}
+
+        {% for entry in fahndungen %}
+            {% set formattedResults = formattedResults|merge([{
+                'id': entry.id,
+                'name': entry.name,
+                'vorname': entry.vorname,
+                'gebdatum': entry.gebdatum ? entry.gebdatum|date('d-m-Y') : '',
+                'loeschung': entry.loeschung ? entry.loeschung|date('d-m-Y') : '',
+                'erfassung': entry.erfassung ? entry.erfassung|date('d-m-Y') : ''
+            }]) %}
+        {% endfor %}
+
+        {% include 'partials/table_search_results.html.twig' with {
+            'results': formattedResults,
+            'fields': ['id', 'name', 'vorname', 'gebdatum', 'loeschung', 'erfassung'],
+            'fieldLabels': {
+                'id': 'ID',
+                'name': 'Familienname',
+                'vorname': 'Vorname',
+                'gebdatum': 'Geburtsdatum',
+                'loeschung': 'Löschung',
+                'erfassung': 'Erfassungsdatum'
+            },
+            'detailRoute': 'fahndung_show',
+            'deleteRoute': 'fahndung_delete'
+
+        } %}
+
+    {% else %}
+        <p class="alert alert-info">Keine Ergebnisse gefunden.</p>
+    {% endif %}
+    {# Paginierung Links #}
+    <div class="pagination">
+        {# Wenn die aktuelle Seite größer als 1 ist, wird der "Zurück"-Link angezeigt.
+        Der Link führt zur vorherigen Seite. #}
+        {% if currentPage > 1 %}
+            {# Die URL für den "Zurück"-Link wird mit der aktuellen Seitenzahl minus 1 erzeugt.
+            Navigation zur vorherigen Seite. #}
+            <a href="{{ path('fahndung_search', app.request.query.all|merge({'page': currentPage - 1})) }}">Zurück</a>
+        {% endif %}
+
+        {# Zeigt die aktuelle Seite und die Gesamtanzahl der Seiten an, z.B. "Seite 2 von 5". #}
+        <span>Seite {{ currentPage }} von {{ totalPages }}</span>
+
+        {# Wenn die aktuelle Seite kleiner als die Gesamtseitenanzahl ist, wird der "Weiter"-Link angezeigt.
+        Der Link führt zur nächsten Seite. #}
+        {% if currentPage < totalPages %}
+            {# Die URL für den "Weiter"-Link wird mit der aktuellen Seitenzahl plus 1 erzeugt.
+            Dies ermöglicht die Navigation zur nächsten Seite. #}
+            <a href="{{ path('fahndung_search', app.request.query.all|merge({'page': currentPage + 1})) }}">Weiter</a>
+        {% endif %}
+    </div>
+
+    <div class="action-buttons">
+        <a href="{{ path('fahndung') }}" class="btn btn-primary">Zur Speichermaske</a>
+        <a href="{{ path('fahndung_search') }}" class="btn btn-primary">Zur Suchmaske</a>
+        <a href="{{ path('home') }}" class="btn btn-primary">Zurück zur Startseite</a>
+    </div>
+
+{% endblock %}

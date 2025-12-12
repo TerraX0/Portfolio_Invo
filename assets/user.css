@@ -1,0 +1,96 @@
+.user-info{
+    color: var(--pol-blue);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.profile-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-row {
+    display: flex;
+    flex-direction: column; /* Stapelt die Elemente untereinander */
+    margin-bottom: 15px;
+    align-items: center; /* Stelle sicher, dass das Label links ausgerichtet bleibt */
+
+}
+
+.profile-row strong {
+    width: 100%; /* Erlaubt, dass Labels sich über die ganze Breite erstrecken */
+}
+
+.profile-row span {
+    flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
+}
+
+.profile-wrapper .form-control[readonly] {
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+    border: 1px solid #ddd;
+}
+
+/* Profil-Buttons */
+.action-profil {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Zentriert die Buttons */
+    gap: 5px;
+}
+
+.action-profil button,
+.action-profil a {
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    background-color: #00468c;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.action-profil button:hover,
+.action-profil a:hover {
+    background:#336ba3;
+    border-color: #336ba3;
+}
+
+.btn-profil {
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    background-color: #00468c;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none; /* Entfernt die Unterstreichung vom <a> Tag */
+    all: unset; /* Setzt alle Standardstile des Browsers für Links zurück */
+}
+
+.btn-profil:hover {
+    background: #336ba3;
+    border-color: #336ba3;
+}
+
+.btn-profil:focus{
+background-color: #00468c; /* Dunkelblau */
+border: 1px solid #ffffff; /* Weißer Rand */
+outline: 2px solid #00468c; /* Dunkelblau */
+outline-offset: 2px; /* Abstand des Outlines vom Rand */
+}
+
+.profile-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #858a8d;
+    margin-bottom: 5px;
+}

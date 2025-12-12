@@ -25,4 +25,7 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+   # '@symfony/stimulus-bundle/controllers/csrf-protection' => [
+    #  'path' => './vendor/symfony/stimulus-bundle/assets/dist/controllers/#csrf-protection.js',
+  #  ],
 ];

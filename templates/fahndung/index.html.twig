@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{# templates/fahndung/index.html.twig #}
+{% set show_header = true %}
+{% set show_sidebar = true %}
+{% block title %}Fahndung{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">{{ title }}</h1>
+    {{ form_start(form, {'attr': {'class': 'form'}}) }}
+
+    <div class="form-container01">Persönliche Daten</div>
+    <div class="form-grid">
+        {% for field in ['id','vorgangsnummer', 'name', 'vorname', 'gebdatum'] %}
+            <div class="form-item floating-label-container">
+                {% include 'partials/floating_labels.html.twig' with {'field': attribute(form, field)} %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="form-container01">Fristen</div>
+    <div class="form-grid">
+        {% for field in ['loeschung', 'erfassung'] %}
+            <div class="form-item floating-label-container">
+                {% include 'partials/floating_labels.html.twig' with {'field': attribute(form, field)} %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="action-buttons">
+        <button class="btn-primary" type="submit">
+            {% if fahndung is defined and fahndung.id is not null %}
+                Änderungen speichern
+            {% else %}
+                Speichern
+            {% endif %}
+        </button>
+        {% if fahndung is defined and fahndung.id is not null %}
+            <a href="{{ path('fahndung') }}" class="btn-primary">Zur Speichermaske</a>
+        {% endif %}
+        <a href="{{ path('fahndung_search') }}" class="btn btn-primary">Zur Suchmaske</a>
+        <a href="{{ path('home') }}" class="btn btn-primary">Zurück zur Startseite</a>
+        {% if fahndung is defined and fahndung.id is not null %}
+            <a href="{{ path('fahndung_delete', {'id': fahndung.id}) }}"
+               class="btn-orange"
+               onclick="return confirm('Möchtest du diesen Eintrag wirklich löschen?');">
+                Löschen
+            </a>
+        {% endif %}
+
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}

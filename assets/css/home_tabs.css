@@ -1,0 +1,225 @@
+/* Container für beide Header-Balken */
+.js-header-container {
+    display: grid;
+    align-items: center;
+    gap: 20px; /* Abstand zwischen h2 und Tabs */
+    /*padding-bottom: 15px; */
+    padding-bottom: 0;
+}
+
+/* Stil für den H2-Bereich */
+.js-header-title {
+    grid-column: 1 / 2; /* Positioniert h2 in der ersten Spalte */
+    background-color: transparent;
+    /*width: 100%; */
+    display: grid;
+    color: #0069b4;
+    text-shadow: 3px 3px 5px #bebebe, -3px -3px 5px #ffffff;
+}
+
+
+.js-header-title,
+.js-header-title h2,
+.js-tabs,
+.js-tabs-list {
+    margin: 0;
+    padding: 0;
+}
+
+
+.js-header-title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Stil für den Tabs-Bereich */
+.js-tabs {
+    grid-column: 2 / 3; /* Positioniert die Tabs in der zweiten Spalte */
+    background-color: transparent;
+    border: none;
+}
+
+.js-tabs-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    margin: 0; /* Abstand nach unten für den h2-Balken */
+    list-style-type: none;
+    justify-content: flex-end;
+    gap: 5px; /* Abstand zwischen den Tabs */
+
+}
+
+.js-tabs-link {
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    background-color: #f9f9f9; /* Tab-Hintergrund */
+    color: #555;
+}
+
+
+.js-tabs-link:hover {
+    background-color: #f0f0f0;
+}
+
+.js-tabs-link.active {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+/* Home Section */
+.home-section {
+    margin-bottom: 1.5rem;
+}
+
+
+.home-grid-item a {
+    color: #336ba3;
+    text-decoration: none; /* Verhindert Unterstreichung */
+}
+
+
+.home-grid-item:hover {
+    color: #0069b4; /* Hover-Farbe für Links */
+}
+
+/* Highlighted Home Section */
+.highlight-home-white {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 10px 20px;
+    text-align: left;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px #bebebe, -3px -3px 5px #ffffff;
+    border-radius: 8px 8px 0 0 ; /* Abrundung am unteren Ende */
+
+}
+
+
+.home-grid-item {
+    display: grid;
+    padding: 1rem;
+    text-align: left;
+    align-items: center;
+    border-top: 2px solid rgba(145, 152, 152, 0.2);
+    transition: all 0.3s ease;
+    color: #336ba3;
+    background-color: transparent;
+
+}
+
+.home-grid-item.with-buttons {
+    display: grid;
+    width: 100%;
+    padding-left: 1rem;
+    text-align: left;
+    background-color: transparent;
+    color: #336ba3;
+    border: none;
+    border-top: 2px solid rgba(145, 152, 152, 0.2);
+    align-items: center; /* Zentriert die Inhalte vertikal */
+    gap: 0.5rem; /* Abstand zwischen den Spalten */
+    grid-template-columns: 4fr 0.5fr 0.5fr; /* Spaltenstruktur: 4 Teile für die erste Spalte, 0.5 für die anderen */
+}
+
+/*
+.home-grid-item:first-of-type {
+    border-top: 3px solid rgba(145, 152, 152, 0.5);
+} */
+/*
+.home-grid-item.with-buttons:first-of-type {
+    border-top: 3px solid rgba(145, 152, 152, 0.5);
+} */
+
+.home-grid-item,
+.home-grid-item.with-buttons {
+    height: 60px;
+}
+
+/*Entfernt die Hover-Regel des Containers auf den Button */
+.home-grid-item.with-buttons:hover {
+    cursor: pointer;
+    color: #336ba3; /* Verhindert eine ungewollte Farbänderung auf Text im Container */
+    font-weight: bold;
+    transition: font-style 0.3s ease /* box-shadow 0.3s ease */ !important;
+
+}
+
+.home-grid-item:hover {
+    cursor: pointer;
+    color: #336ba3;
+    font-weight: bold;
+    transition: font-style 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Für Buttons */
+
+.grid-vorgang-item-right {
+    display: inline-flex; /* Nutzt Flexbox, um die Buttons nebeneinander anzuzeigen */
+    gap: 40px; /* Abstand zwischen den Buttons */
+    font-weight: normal; /* Verhindert fett-werden/Vergrößern der Schrift der Buttons bei Hover des übergeordneten Containers */
+    margin-left: 30px;
+}
+
+.grid-vorgang-item-right:hover {
+    gap: 20px;  /* Vergrößert den Abstand zwischen den Buttons im Hover */
+
+}
+
+/* Abfrage-Button */
+.action-button-abfrage {
+    background-color:  #00468c;
+    color: white !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 0; /* Abstand nach rechts */
+    white-space: nowrap; /* Verhindert den Umbruch des Texts */
+    overflow-wrap: break-word; /* Textumbruch bei Bedarf */
+}
+
+/* Speichern-Button */
+.action-button-speichern {
+    background-color: #1f6c70;
+    color: white !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap; /* Verhindert den Umbruch des Texts */
+    overflow-wrap: break-word; /* Textumbruch bei Bedarf */
+    box-sizing: border-box; /* Verhindert, dass Padding die Breite des Buttons verändert */
+}
+
+.action-button-abfrage:hover {
+    background-color:#336ba3;
+    color: white !important;
+    font-weight: bold;
+}
+
+.action-button-speichern:hover {
+    background-color: #549575;
+    color: white !important;
+    font-weight: bold; /* Schrift wird fett */
+    position: relative; /* Verhindert die Verschiebung benachbarter Elemente */
+    padding-left: 20px; /* Statt transform */
+}
+
+.katalog-tab{
+    font-size: 16px;
+    font-weight: normal; /* Normale Schriftstärke */
+    transition: font-weight 0.3s ease; /* Sanfter Übergang */
+}
+
+.katalog-tab:hover{
+    font-weight: bold;
+}
+

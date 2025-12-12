@@ -1,0 +1,19 @@
+{# partials/katalog.html.twig #}
+<div class="home-grid">
+    {% set kataloge = [
+        { 'url': '/katalog/ipkenner', 'name': 'IP-Kenner' },
+        { 'url': '/katalog/zfkenner', 'name': 'ZF-Kenner' },
+        { 'url': '/katalog/bundesland', 'name': 'Bundesländer' },
+        { 'url': '/katalog/auslaenderbehoerden', 'name': 'Ausländerbehörden' },
+        { 'url': '/katalog/nationen', 'name': 'Staatsangehörigkeit' },
+        { 'url': '/katalog/voelker', 'name': 'Volkszugehörigkeit' }
+    ] %}
+
+    {% for katalog in kataloge %}
+        <div class="home-grid-item">
+            <a href="{{ katalog.url }}" class="no-underline">
+                <h3 class="katalog-tab">{{ katalog.name }}</h3>
+            </a>
+        </div>
+    {% endfor %}
+</div>

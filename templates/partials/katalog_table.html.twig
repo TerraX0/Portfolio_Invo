@@ -1,0 +1,26 @@
+{# templates/partials/katalog_table.html.twig #}
+<div class="table-wrapper">
+    <table class="table-main">
+        <thead class="table-header">
+        <tr class="table-row">
+            {% for field in fields %}
+                <th class="table-cell-header">{{ fieldLabels[field] }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for entry in katalog %}
+            <tr class="table-row">
+                {% for field in fields %}
+                    <td class="table-cell">{{ attribute(entry, field) }}</td>
+                {% endfor %}
+            </tr>
+        {% else %}
+            <tr class="table-row">
+                <td colspan="{{ fields | length }}">Keine Einträge gefunden.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

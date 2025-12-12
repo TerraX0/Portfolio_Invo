@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{# templates/zielfahndung/index.html.twig #}
+{% set show_header = true %}
+{% set show_sidebar = true %}
+{% block title %}Zielfahndung{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">{{ title }}</h1>
+
+    {{ form_start(form, {'attr': {'class': 'form' }}) }}
+
+    {% set sections = {
+        'Vorgangsdetails': [
+            'id', 'vorgangsnummer', 'sachbearbeiter1', 'sachbearbeiter2',
+            'einsendendeDst', 'sachbearbeitendeDst', 'eingang',
+            'geschaeftszeichen', ],
+         'Kataloge': ['bundesland', 'zfkenner', 'auslaendische_behoerde',],
+        'Fristen': [  'festnahme','erfassung', 'aussonderung', 'wv', 'erledigt'],
+        'Inhalt': ['inhalt'],
+        'Massnahmen': ['massnahmen'],
+        'Hinweise und Bemerkungen': ['bemerkung']
+    } %}
+
+    {% for title, fields in sections %}
+        <div class="form-container01">{{ title }}</div>
+        <div class="form-grid">
+            {% for field in fields %}
+                    {% include 'partials/floating_labels.html.twig' with {'field': attribute(form, field)} %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    <div class="action-buttons">
+        <button class="btn-primary" type="submit">
+            {% if zielfahndung is defined and zielfahndung.id is not null %}
+                Änderungen speichern
+            {% else %}
+                Speichern
+            {% endif %}
+        </button>
+        {% if zielfahndung is defined and zielfahndung.id is not null %}
+            <a href="{{ path('zielfahndung') }}" class="btn-primary">Zur Speichermaske</a>
+        {% endif %}
+        <a href="{{ path('zielfahndung_search') }}" class="btn-primary">Zur Suchmaske</a>
+        <a href="{{ path('home') }}" class="btn-primary">Zurück zur Startseite</a>
+
+    <!--Löschbutton-->
+        {% if zielfahndung is defined and zielfahndung.id is not null %}
+            <a href="{{ path('zielfahndung_delete', {'id': zielfahndung.id}) }}"
+               class="btn-orange"
+               onclick="return confirm('Möchtest du diesen Eintrag wirklich löschen?');">
+                Löschen
+            </a>
+        {% endif %}
+    </div>
+
+
+
+        {{ form_end(form) }}
+{% endblock %}

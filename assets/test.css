@@ -1,0 +1,522 @@
+/* Formular */
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Buttons */
+.button-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #00468c;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Grid für das Formular */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(40px, 1fr));
+    gap: 30px;
+    overflow-x: hidden; /* Verhindert horizontales Überlaufen */
+}
+    .form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-item label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style für das gesamte Formular */
+.form {
+    width: 100%;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Styling für die Eingabefelder */
+/* Floating Labels in Grid */
+.floating-label-container {
+    width: 100%;
+}
+
+/*- form-grid */
+.form-grid input,
+.form-grid select {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-grid textarea {
+    width: 100%;
+    /*height: 50px; */
+    height: auto; /* Höhe basierend auf Inhalt */
+    min-height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Wenn das Textarea fokussiert oder Inhalt hat */
+.form-grid textarea.floating-input:not(:empty):focus {
+    padding-top: 0.5rem;
+}
+
+.form-grid .floating-label-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Floating-labels: Standardzustand der Eingabefelder */
+.form-grid .floating-input {
+    width: 100%;
+    padding: 20px 5px 5px 5px; /* Oben Rechts Unten Links */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    min-width: 0; /* Verhindert, dass die Spalten überlaufen */
+    outline: none;
+}
+
+.form-grid .floating-label,
+.form-item .floating-label-container .floating-label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    font-size: 10px;
+    transition: 0.2s ease all;
+    opacity: 1;
+    color: #7fa2c4;
+    text-transform: uppercase;
+}
+
+
+/* Wenn das Eingabefeld fokussiert oder nicht leer ist */
+.form-grid .floating-input:focus + .floating-label,
+.form-grid .floating-input:not(:placeholder-shown) + .floating-label {
+    top: -5%;  /* Label nach oben verschieben */
+    font-size: 10px;
+    opacity: 1;  /* Label wird vollständig sichtbar */
+    color: #336ba3; /* Farbe ändern, wenn das Feld fokussiert ist */
+    padding-top: 3px;
+}
+
+.form-grid textarea.floating-input:focus + .floating-label{
+    padding-top: 0.3125rem; /* 5px */
+}
+
+.form-grid textarea.floating-input {
+    width: calc(209%);
+    margin-top: 20px; /*Abstand zum Label */
+}
+
+    /* Styling für Datumsfelder */
+.floating-label-container input[type="date"] {
+    text-align: right;
+    box-sizing: border-box;
+    font-size: 12px;
+    outline: none;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+/* Styling für das Datumsfeld-Label */
+.floating-label-container input[type="date"]:placeholder-shown  + .floating-label {
+    left: 5px;
+    font-size: 10px;
+    color: #7fa2c4;
+    pointer-events: none; /* Damit das Label nicht die Eingabe blockiert */
+    transition: all 0.2s ease;
+}
+
+/* Wenn das Datumsfeld leer ist und nicht fokussiert ist */
+.floating-label-container input[type="date"]:not(:focus):empty + .floating-label {
+    top: 50%;  /* Label zurücksetzen */
+    font-size: 10px;
+    color: #7fa2c4;
+    opacity: 1;
+    transition: 0.2s ease all;
+}
+
+/* Wenn das Datumsfeld fokussiert oder der Wert gesetzt wurde */
+.floating-label-container input[type="date"]:focus + .floating-label,
+.floating-label-container input[type="date"]:valid + .floating-label {
+    top: -5%;  /* Label nach oben verschieben */
+    font-size: 10px;
+    opacity: 1;  /* Label wird vollständig sichtbar */
+    color: #336ba3; /* Farbe ändern, wenn das Feld fokussiert ist */
+    padding-top: 3px;
+}
+
+/* Wenn das Datumsfeld leer ist und nicht fokussiert ist */
+.floating-label-container input[type="date"]:not(:focus):invalid + .floating-label {
+    top: -5%;
+    font-size: 10px;
+    color: #aaa; /* Graue Farbe */
+    letter-spacing: 0.5px;  /* Weniger Abstand */
+    transition: 0.2s ease all;
+    opacity: 1;
+}
+
+.floating-label-container textarea,
+.floating-label-container select,
+.floating-label-container input {
+    /* width: 100%; */
+}
+.floating-label-container textarea {
+    overflow: hidden; /* Keine authomatische Scrollbar */
+    outline: none;
+}
+
+/* Select-Felder */
+.form-grid .floating-input select,
+.form-grid select.floating-input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.form-grid select.floating-input {
+    padding: 5px 5px 5px 5px; /* oben rechts unten links */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Hover- und Fokus-Effekte */
+.form-grid .floating-input select:hover,
+.form-grid select.floating-input:focus {
+    outline: none;
+}
+
+/**************** Tabellen *********************/
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.table-main {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders between cells */
+    table-layout: fixed; /* Verhindert, dass die Tabelle in der Breite durcheinander gerät */
+}
+
+.table-main th, .table-main td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd; /* Füge standardmäßige Trennlinien hinzu */
+}
+
+.table-header {
+    background-color: #f4f4f4;
+}
+
+.table-cell-header {
+    font-weight: bold !important;
+    text-align: left;
+    background-color: #f9f9f9; /* Leicht hervorgehobenes Header */
+}
+
+.table-body .table-row {
+    border-bottom: 1px solid #ddd;
+}
+
+.table-row-header {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold; /* Hervorhebung der Header-Zeile */
+}
+
+.table-body .table-row-detail {
+    border-bottom: 1px solid #ddd;
+}
+
+.table-body .table-cell-detail {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-style: italic;
+    color: #555;
+}
+
+.table-body .table-cell {
+    vertical-align: middle; /* Mittig ausrichten */
+}
+
+.table-main a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Nach jedem Datensatz dickere Linie */
+.with-bottom-border {
+    border-bottom: 3px solid var(--pol-grey-hex) !important;
+}
+
+.with-bottom-border2 {
+    border-bottom: 5px solid var(--pol-grey-hex) !important;
+}
+
+.button-align-right {
+    text-align: right !important;
+}
+
+/*.table-main .btn-primary {
+    background-color: #007bff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.table-main .btn-orange {
+    background-color: #ff7f0e;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.table-main .btn-primary:hover,
+.table-main .btn-orange:hover {
+    opacity: 0.8;
+} */
+
+/* Optional: Zeilenwechsel für Details */
+.table-body .table-row-detail td {
+    background-color: #f9f9f9;
+    padding: 10px;
+    font-size: 14px;
+}
+
+
+/* Ende Tabellen */
+
+.btn {
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-orange {
+    background-color: #ff8c00;
+    color: white;
+}
+
+
+
+/* Links */
+.link-details {
+    color: #00468c; /* Dunkelblau */
+    text-decoration: underline;
+    font-size: inherit; /* Übernimmt die Schriftgröße von Fließtext oder Überschriften */
+}
+
+.link-details:hover,
+.link-details:visited,
+.link-details:active {
+    color: #00468c; /* Dunkelblau */
+    text-decoration: none; /* Unterstreichung entfernen */
+}
+
+.link-details:focus {
+    outline: 2px solid #00468c; /* Dunkelblauer Outline-Rahmen */
+    box-shadow: none; /* Kein Schatten */
+    text-decoration: none; /* Unterstreichung entfernen */
+}
+
+/* Entfernen der standart-Regeln */
+a {
+    color: inherit; /* Erbt die Schriftfarbe vom Eltern-Element */
+    text-decoration: none; /* Entfernt die Unterstreichung */
+    font-weight: inherit; /* Erbt die Schriftstärke vom Eltern-Element */
+    font-size: inherit; /* Erbt die Schriftgröße */
+}
+
+/* Buttons */
+.action-buttons {
+    display: inline-block;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-start;
+}
+
+.btn-primary{
+    all: unset; /* Setzt alle Standardstile des Browsers für Links zurück */
+    background-color: #00468c;
+    color: #ffffff;
+    border-radius: 4px;
+    border-width: 1px;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    padding: 0.375rem 1rem;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background:#336ba3;
+    border-color: #336ba3;
+}
+
+.btn-primary:focus {
+    background-color: #00468c; /* Dunkelblau */
+    border: 1px solid #ffffff; /* Weißer Rand */
+    outline: 2px solid #00468c; /* Dunkelblau */
+    outline-offset: 2px; /* Abstand des Outlines vom Rand */
+}
+
+/* Alerts */
+.alert-info {
+    background-color: transparent;
+    color: #e0003c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/*Löschen-Button */
+.btn-orange {
+    background-color: var(--pol-orange);
+    color: white;
+    border-radius: 4px;
+    border-width: 1px;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    padding: 0.375rem 1rem;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #cc5200; /* Dunkleres Orange */
+    border-color: #cc5200;
+}
+
+.btn-orange:focus {
+    background-color: #ff6600;
+    border: 1px solid #ffffff; /* Weißer Rand */
+    outline: 2px solid #ff6600; /* Orange */
+    outline-offset: 2px;
+}
+
+
+/*Grid-Container für Suche und SPeichern */
+.form-container01 {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #336ba3;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 5px 5px;
+    border: none;
+    text-transform: uppercase;
+    /*margin: 0 0 10px 0; */
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Datumsfelder */
+/*
+.date-field .floating-input[type="date"] {
+    padding: 10px 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #aaa;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.date-field .floating-label {
+    font-size: 12px;
+    color: #7fa2c4;
+}
+
+/Hover-Effekte für Datumsfelder
+.date-field .floating-input[type="date"]:focus + .floating-label {
+    color: #336ba3;
+    font-size: 13px;
+}
+
+/* Spezifische Darstellung für das Datumsfeld
+.date-field input[type="date"] {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.date-field input[type="date"]:focus {
+    border-color: #336ba3;
+    outline: none;
+} */
+
+
