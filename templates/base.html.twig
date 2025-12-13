@@ -15,6 +15,10 @@
 </head>
 <body>
 {% block body %}
+
+
+        {% set show_logo = show_logo|default(false) %}
+
     {% if show_header is defined and show_header %}
         {% include 'partials/header.html.twig' ignore missing %}
     {% endif %}
@@ -43,6 +47,22 @@
 
     </div> <!-- End main-container -->
 {% endblock %}
+
+ <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-copyright">
+                © {{ 'now'|date('Y') }} Alina Köllner. Alle Rechte vorbehalten.
+            </div>
+            <ul class="footer-links">
+                <li>  
+                    <a href="https://www.alinakoellner.de/" target="_blank" class="footer-link">Kontakt</a>
+                 </li>
+
+            </ul>
+        </div>
+    </footer>
+
 {% block javascripts %}
     <script src="{{ asset('js/home_tabs.js') }}"></script>
 {% endblock %}

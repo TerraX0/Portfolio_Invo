@@ -3,39 +3,29 @@
         <nav>
             <div class="nav-logo-links">
                 <div class="logo-container">
-                    <a href="{{ path('home') }}" class="logo-link" title="Startseite">
-                        <img src="{{ asset('images/Logo_AK_endgültig_bearbeitet2.png') }}" alt="Startseite" class="logo">
-                    </a>
+                      {% if show_logo %}
+                <img src="{{ asset('images/Logo_AK_endgültig_bearbeitet2.png') }}"
+                     alt="Startseite"
+                     class="logo">
+            {% endif %}
                 </div>
             </div>
-
             <div class="nav-links">
-                <!--Eingeloggt als -->
-                {% if app.user %}
-                    <span>{{ app.user.dilp }}</span>
-                    <!--Falls Admin-Rolle, anzeigen -->
-                    {% set role_display = '' %}
-                    {% for role in app.user.roles %}
-                        {% if role == 'ROLE_ADMIN' %}
-                            {% set role_display = ' / Admin' %}
-                        {% endif %}
-                    {% endfor %}
-                    <span>{{ role_display }}</span>
-                {% endif %}
 
-              {% set nav_items = [
-    {
-        'route': '#', 
-        'icon': '#', 
-        'label': '#', 
-    },
-    {
-        'route': '#', 
-        'icon': '#', 
-        'label': '#', 
-        'alt': '#'
-    }
-] %} 
+         {% set nav_items = [
+        {'route': '#', 'icon': 'images/icons/person.svg', 'alt': 'Profil'},
+        {'route': '#', 'icon': 'images/icons/logout.svg', 'alt': 'Logout'}
+    ] %}
+
+    {# --- RENDERING-SCHLEIFE --- #}
+
+    {% for item in nav_items %}
+     
+        <a href="{{ item.route }}" title="{{ item.alt }}" class="nav-link">
+            {# Generische Klasse für das CSS #}
+            <img src="{{ asset(item.icon) }}" alt="{{ item.alt }}" class="header-icon">
+        </a>
+    {% endfor %}
 
               
             </div>
