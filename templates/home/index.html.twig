@@ -90,11 +90,11 @@
         <div id="tab3-section" class="js-tab-section" style="display: none">
             <div class="home-grid">
                 <div class="home-grid-item"><a href="#profil" title="Profil" class="no-underline">Profil / Passwortänderung</a></div>
-
-                {% if app.user and 'ROLE_ADMIN' in app.user.roles %}
-                <div class="home-grid-item"><a href="{{ path('admin_users') }}" class="no-underline">Benutzerverwaltung</a></div>
-                {% endif %}
             </div>  
+ <div class="home-grid">
+                <div class="home-grid-item"><a href="#profil" title="Profil" class="no-underline">Benutzerverwaltung</a></div>
+            </div>  
+
         </div>  
     </div>  
 

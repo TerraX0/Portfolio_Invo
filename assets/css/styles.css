@@ -40,6 +40,13 @@ html, body {
     padding: 0;
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "San Francisco",
     "Segoe UI", "Fira Sans", Roboto, Ubuntu, sans-serif;
+    overflow: hidden;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 p {
@@ -73,10 +80,10 @@ p {
 }
 
 .main-container {
-    display: flex; /* Flexbox aktivieren */
-    /*height: 100%; /* Sicherstellen, dass der Container die volle Höhe des Viewports einnimmt */
-    min-height: 100vh; /* Container wächst mit dem Inhalt */
+    display: flex;
+    flex: 1;        /* <-- wichtig */
     width: 100%;
+    min-height: 0; /* <-- verhindert versteckte Overflows */
 }
 
 
@@ -519,3 +526,4 @@ h3.results_header {
 .hidden + label {
     display: none !important;
 }
+

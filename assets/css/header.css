@@ -81,7 +81,7 @@ img {
 }
 
 /* Style für die Icons im Header */
-.nav-icon {
+.header-icon {
     width: 20px;
     height: 20px;
     margin-right: 10px; /* Abstand zwischen Icon und Text */

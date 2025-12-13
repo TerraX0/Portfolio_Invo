@@ -2,7 +2,7 @@
 .modern-footer {
     background: transparent;
     padding: 0.5rem 0.2rem;
-    margin-top: 0;
+    margin-top: auto; /* <-- der entscheidende Trick dami Footer sichtbar bleibt */
     
     /* 1. Verschiebe den Footer nach rechts, um die Breite der Sidebar zu überbrücken */
     margin-left: 300px; 
