@@ -1,0 +1,62 @@
+/* Footer muss sich über den Inhaltsbereich erstrecken */
+.modern-footer {
+    background: transparent;
+    padding: 0.5rem 0.2rem;
+    margin-top: 0;
+    
+    /* 1. Verschiebe den Footer nach rechts, um die Breite der Sidebar zu überbrücken */
+    margin-left: 300px; 
+    
+    /* Füge padding hinzu, um den Abstand zu den Rändern festzulegen */
+    padding-left: 1rem;
+    padding-right: 14rem;
+    box-sizing: border-box; /* Stellt sicher, dass padding in der 100% Breite enthalten ist */
+}
+
+.footer-container {
+    -width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links a {
+    color: black;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--pol-link-color);
+}
+
+.footer-copyright {
+    color: black;
+    font-size: 0.9rem;
+    padding: 0;
+}
+
+/* Responsive - NUR für kleine Bildschirme */
+/* u.a. Anpassung des Footers für mobile Ansicht (wenn Sidebar versteckt ist) */
+@media (max-width: 768px) {
+    .modern-footer {
+        /* Setze margin-left und width zurück, wenn die Sidebar verschwindet */
+        margin-left: 0;
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
