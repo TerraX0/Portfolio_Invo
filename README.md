@@ -18,6 +18,7 @@ Run the following commands from your root directory:
 composer -V
 php bin/console asset-map:compile
 php bin/console cache:clear
+```
 ---
 In templates/partials/sidebar.css (or the corresponding Twig template), remember to replace sidebar-icon with nav-icon in these two locations:
 
@@ -41,9 +42,11 @@ HTML
 ---
 ### **Setup & Local Installation in German**
 Nach jedem herunterladen des Projekts: der ordner public/assets muss durch einen Befehl aus dem Root-Ordner /assets mit den entsprechenden Dateien (CSS, JS etc) gefüllt werden: <br>
+```bash
 composer -V <br>
 php bin/console asset-map:compile <br>
-php bin/console cache:clear <br>
+php bin/console cache:clear
+```
 
 ########################<br>
 Bitte in templates/partials/sidebar.css an diesen zwei Stellen "sidebar-icon" durch "nav-icon" ersetzen<br>
