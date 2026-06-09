@@ -1,13 +1,16 @@
 # Invo Project - Frontend Mockup
 A frontend structure and visual mockup for the "Invo" portfolio project.
-**🌐 Live Demo:** You can view a mockup on my website: [alinakoellner.de](https://alinakoellner.de)
+<br>**🌐 Live Demo:** You can view a mockup on my website: [alinakoellner.de](https://alinakoellner.de)
 
 ### What it does:
 This repository demonstrates my skills in modern web layout design, structured HTML5/CSS3 coding, and component architecture. It serves as a visual and structural foundation for managing project portfolios.
 
+**Originally Concept & Context:**  
+The "Invo" project was originally conceptualized and built during my internship at the Main Police Directorate of Lower Saxony (Polizeidirektion Niedersachsen). It was designed as a secure and structured system for storing, searching, modifying, and outputting personal data. This repository showcases the frontend interface and layout architecture inspired by that project.
+
 ---
 
-### Setup & Local Installation Markdown in German
+### Setup & Local Installation
 Every time after cloning or downloading the project, the `public/assets` folder must be generated and compiled from the root `/assets` directory using Symfony's AssetMapper. 
 
 Run the following commands from your root directory:
