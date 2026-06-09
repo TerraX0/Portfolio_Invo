@@ -30,7 +30,7 @@ HTML
 </a>
 ```
 In the logout link:
-HTML
+<br>HTML
 ```bash
 <a href="#" title="Logout">
     {# Icons and label added for Logout #}
