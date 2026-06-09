@@ -21,8 +21,7 @@ php bin/console cache:clear
 ```
 ---
 In templates/partials/sidebar.css (or the corresponding Twig template), remember to replace sidebar-icon with nav-icon in these two locations:
-
-    In the navigation loop:
+In the navigation loop:
 
 HTML
 ```bash
@@ -30,9 +29,7 @@ HTML
     <img src="{{ asset(item.icon) }}" alt="{{ item.label }} Icon" class="nav-icon">
 </a>
 ```
----
     In the logout link:
-
 HTML
 ```bash
 <a href="#" title="Logout">
