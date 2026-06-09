@@ -29,7 +29,7 @@ HTML
     <img src="{{ asset(item.icon) }}" alt="{{ item.label }} Icon" class="nav-icon">
 </a>
 ```
-    In the logout link:
+In the logout link:
 HTML
 ```bash
 <a href="#" title="Logout">
