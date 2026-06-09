@@ -18,7 +18,7 @@ Run the following commands from your root directory:
 composer -V
 php bin/console asset-map:compile
 php bin/console cache:clear
-
+---
 In templates/partials/sidebar.css (or the corresponding Twig template), remember to replace sidebar-icon with nav-icon in these two locations:
 
     In the navigation loop:
@@ -28,7 +28,7 @@ HTML
 <a href="{{ item.route }}" title="{{ item.label }}">
     <img src="{{ asset(item.icon) }}" alt="{{ item.label }} Icon" class="nav-icon">
 </a>
-
+---
     In the logout link:
 
 HTML
@@ -38,6 +38,7 @@ HTML
     <img src="{{ asset('images/icons/logout.svg') }}" alt="Logout Icon" class="nav-icon">
 </a>
 
+---
 ### **Setup & Local Installation in German**
 Nach jedem herunterladen des Projekts: der ordner public/assets muss durch einen Befehl aus dem Root-Ordner /assets mit den entsprechenden Dateien (CSS, JS etc) gefüllt werden: <br>
 composer -V <br>
