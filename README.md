@@ -56,6 +56,6 @@ In templates/partials/sidebar.css an diesen zwei Stellen "sidebar-icon" durch "n
   und <br>
   ```bash
    a href="#" title="Logout"><br>
-                {# Icons und Label für Logout ergänzt (Beispiel) #}<br>
-    img src="{{ asset('images/icons/logout.svg') }}" alt="Logout Icon" class="sidebar-icon">
+   {# Icons und Label für Logout ergänzt (Beispiel) #}<br>
+   img src="{{ asset('images/icons/logout.svg') }}" alt="Logout Icon" class="sidebar-icon">
 ```
